@@ -1,8 +1,8 @@
 # Remix Router
 
-The `@remix-run/router` package is a framework-agnostic routing package (sometimes referred to as a browser-emulator) that serves as the heart of [React Router][react-router] and [Remix][remix] and provides all the core functionality for routing coupled with data loading and data mutations. It comes with built-in handling of errors, race-conditions, interruptions, cancellations, lazy-loading data, and much, much more.
+The `@aptre/remix-router` package is a framework-agnostic routing package (sometimes referred to as a browser-emulator) that serves as the heart of [React Router][react-router] and [Remix][remix] and provides all the core functionality for routing coupled with data loading and data mutations. It comes with built-in handling of errors, race-conditions, interruptions, cancellations, lazy-loading data, and much, much more.
 
-If you're using React Router, you should never `import` anything directly from the `@remix-run/router` - you should have everything you need in `react-router-dom` (or `react-router`/`react-router-native` if you're not rendering in the browser). All of those packages should re-export everything you would otherwise need from `@remix-run/router`.
+If you're using React Router, you should never `import` anything directly from the `@aptre/remix-router` - you should have everything you need in `react-router-dom` (or `react-router`/`react-router-native` if you're not rendering in the browser). All of those packages should re-export everything you would otherwise need from `@aptre/remix-router`.
 
 > [!WARNING]
 >
@@ -120,7 +120,7 @@ By default, active loaders will revalidate after any navigation or fetcher mutat
 
 ### Future Flags
 
-We use _Future Flags_ in the router to help us introduce breaking changes in an opt-in fashion ahead of major releases. Please check out the [blog post][future-flags-post] and [React Router Docs][api-development-strategy] for more information on this process. The currently available future flags in `@remix-run/router` are:
+We use _Future Flags_ in the router to help us introduce breaking changes in an opt-in fashion ahead of major releases. Please check out the [blog post][future-flags-post] and [React Router Docs][api-development-strategy] for more information on this process. The currently available future flags in `@aptre/remix-router` are:
 
 | Flag                     | Description                                                               |
 | ------------------------ | ------------------------------------------------------------------------- |

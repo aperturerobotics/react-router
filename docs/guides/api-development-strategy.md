@@ -51,7 +51,7 @@ The lifecycle is thus either:
 
 Here's the current future flags in React Router v6 today.
 
-### `@remix-run/router` Future Flags
+### `@aptre/remix-router` Future Flags
 
 These flags are only applicable when using a [Data Router][picking-a-router] and are passed when creating the `router` instance:
 

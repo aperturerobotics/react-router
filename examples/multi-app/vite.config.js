@@ -30,7 +30,7 @@ export default defineConfig({
   resolve: process.env.USE_SOURCE
     ? {
         alias: {
-          "@remix-run/router": path.resolve(
+          "@aptre/remix-router": path.resolve(
             __dirname,
             "../../packages/router/index.ts"
           ),

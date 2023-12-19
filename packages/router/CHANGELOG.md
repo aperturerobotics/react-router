@@ -1,4 +1,4 @@
-# `@remix-run/router`
+# `@aptre/remix-router`
 
 ## 1.14.0
 
@@ -197,7 +197,7 @@
 
 - Fix bug with `resolveTo` in splat routes ([#11045](https://github.com/remix-run/react-router/pull/11045))
   - This is a follow up to [#10983](https://github.com/remix-run/react-router/pull/10983) to handle the few other code paths using `getPathContributingMatches`
-  - This removes the `UNSAFE_getPathContributingMatches` export from `@remix-run/router` since we no longer need this in the `react-router`/`react-router-dom` layers
+  - This removes the `UNSAFE_getPathContributingMatches` export from `@aptre/remix-router` since we no longer need this in the `react-router`/`react-router-dom` layers
 - Do not revalidate unmounted fetchers when `v7_fetcherPersist` is enabled ([#11044](https://github.com/remix-run/react-router/pull/11044))
 
 ## 1.12.0
@@ -232,7 +232,7 @@
 
 ### Minor Changes
 
-- Add a new `future.v7_fetcherPersist` flag to the `@remix-run/router` to change the persistence behavior of fetchers when `router.deleteFetcher` is called. Instead of being immediately cleaned up, fetchers will persist until they return to an `idle` state ([RFC](https://github.com/remix-run/remix/discussions/7698)) ([#10962](https://github.com/remix-run/react-router/pull/10962))
+- Add a new `future.v7_fetcherPersist` flag to the `@aptre/remix-router` to change the persistence behavior of fetchers when `router.deleteFetcher` is called. Instead of being immediately cleaned up, fetchers will persist until they return to an `idle` state ([RFC](https://github.com/remix-run/remix/discussions/7698)) ([#10962](https://github.com/remix-run/react-router/pull/10962))
 
   - This is sort of a long-standing bug fix as the `useFetchers()` API was always supposed to only reflect **in-flight** fetcher information for pending/optimistic UI -- it was not intended to reflect fetcher data or hang onto fetchers after they returned to an `idle` state
   - Keep an eye out for the following specific behavioral changes when opting into this flag and check your app for compatibility:
@@ -385,12 +385,12 @@
 
 ### Minor Changes
 
-- Enable relative routing in the `@remix-run/router` when providing a source route ID from which the path is relative to: ([#10336](https://github.com/remix-run/react-router/pull/10336))
+- Enable relative routing in the `@aptre/remix-router` when providing a source route ID from which the path is relative to: ([#10336](https://github.com/remix-run/react-router/pull/10336))
 
   - Example: `router.navigate("../path", { fromRouteId: "some-route" })`.
   - This also applies to `router.fetch` which already receives a source route ID
 
-- Introduce a new `@remix-run/router` `future.v7_prependBasename` flag to enable `basename` prefixing to all paths coming into `router.navigate` and `router.fetch`.
+- Introduce a new `@aptre/remix-router` `future.v7_prependBasename` flag to enable `basename` prefixing to all paths coming into `router.navigate` and `router.fetch`.
 
   - Previously the `basename` was prepended in the React Router layer, but now that relative routing is being handled by the router we need prepend the `basename` _after_ resolving any relative paths
   - This also enables `basename` support in `useFetcher` as well
@@ -642,7 +642,7 @@ function Comp() {
 - Support `basename` and relative routing in `loader`/`action` redirects ([#9447](https://github.com/remix-run/react-router/pull/9447))
 - Ignore pathless layout routes when looking for proper submission `action` function ([#9455](https://github.com/remix-run/react-router/pull/9455))
 - properly support `index` routes with a `path` in `useResolvedPath` ([#9486](https://github.com/remix-run/react-router/pull/9486))
-- Add UMD build for `@remix-run/router` ([#9446](https://github.com/remix-run/react-router/pull/9446))
+- Add UMD build for `@aptre/remix-router` ([#9446](https://github.com/remix-run/react-router/pull/9446))
 - fix `createURL` in local file execution in Firefox ([#9464](https://github.com/remix-run/react-router/pull/9464))
 - Updates to `unstable_createStaticHandler` for incorporating into Remix ([#9482](https://github.com/remix-run/react-router/pull/9482), [#9465](https://github.com/remix-run/react-router/pull/9465))
 
@@ -663,11 +663,11 @@ function Comp() {
 
 ## 1.0.0
 
-This is the first stable release of `@remix-run/router`, which provides all the underlying routing and data loading/mutation logic for `react-router`. You should _not_ be using this package directly unless you are authoring a routing library similar to `react-router`.
+This is the first stable release of `@aptre/remix-router`, which provides all the underlying routing and data loading/mutation logic for `react-router`. You should _not_ be using this package directly unless you are authoring a routing library similar to `react-router`.
 
 For an overview of the features provided by `react-router`, we recommend you go check out the [docs][rr-docs], especially the [feature overview][rr-feature-overview] and the [tutorial][rr-tutorial].
 
-For an overview of the features provided by `@remix-run/router`, please check out the [`README`][remix-router-readme].
+For an overview of the features provided by `@aptre/remix-router`, please check out the [`README`][remix-router-readme].
 
 [rr-docs]: https://reactrouter.com
 [rr-feature-overview]: https://reactrouter.com/start/overview

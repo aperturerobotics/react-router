@@ -8,7 +8,7 @@ import type {
   UNSAFE_RouteManifest as RouteManifest,
   RouterState,
   FutureConfig as RouterFutureConfig,
-} from "@remix-run/router";
+} from "@aptre/remix-router";
 import {
   IDLE_BLOCKER,
   IDLE_FETCHER,
@@ -18,18 +18,18 @@ import {
   isRouteErrorResponse,
   createStaticHandler as routerCreateStaticHandler,
   UNSAFE_convertRoutesToDataRoutes as convertRoutesToDataRoutes,
-} from "@remix-run/router";
+} from "@aptre/remix-router";
 import {
   UNSAFE_mapRouteProperties as mapRouteProperties,
   UNSAFE_useRoutesImpl as useRoutesImpl,
-} from "react-router";
+} from "@aptre/remix-react-router";
 import type {
   DataRouteObject,
   FutureConfig,
   Location,
   RouteObject,
   To,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 import {
   createPath,
   parsePath,
@@ -38,7 +38,7 @@ import {
   UNSAFE_DataRouterStateContext as DataRouterStateContext,
   UNSAFE_FetchersContext as FetchersContext,
   UNSAFE_ViewTransitionContext as ViewTransitionContext,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 export interface StaticRouterProps {
   basename?: string;

@@ -12,9 +12,9 @@ import type {
   StaticHandlerContext,
   To,
   TrackedPromise,
-} from "@remix-run/router";
+} from "@aptre/remix-router";
 
-// Create react-specific types from the agnostic types in @remix-run/router to
+// Create react-specific types from the agnostic types in @aptre/remix-router to
 // export from react-router
 export interface IndexRouteObject {
   caseSensitive?: AgnosticIndexRouteObject["caseSensitive"];
@@ -65,7 +65,7 @@ export type DataRouteObject = RouteObject & {
 
 export interface RouteMatch<
   ParamKey extends string = string,
-  RouteObjectType extends RouteObject = RouteObject
+  RouteObjectType extends RouteObject = RouteObject,
 > extends AgnosticRouteMatch<ParamKey, RouteObjectType> {}
 
 export interface DataRouteMatch extends RouteMatch<string, DataRouteObject> {}
@@ -133,7 +133,7 @@ interface NavigationContextObject {
 }
 
 export const NavigationContext = React.createContext<NavigationContextObject>(
-  null!
+  null!,
 );
 
 if (__DEV__) {
@@ -146,7 +146,7 @@ interface LocationContextObject {
 }
 
 export const LocationContext = React.createContext<LocationContextObject>(
-  null!
+  null!,
 );
 
 if (__DEV__) {

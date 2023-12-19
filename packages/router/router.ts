@@ -964,7 +964,7 @@ export function createRouter(init: RouterInit): Router {
         warning(
           blockerFunctions.size === 0 || delta != null,
           "You are trying to use a blocker on a POP navigation to a location " +
-            "that was not created by @remix-run/router. This will fail silently in " +
+            "that was not created by @aptre/remix-router. This will fail silently in " +
             "production. This can happen if you are navigating outside the router " +
             "via `window.history.pushState`/`window.location.hash` instead of using " +
             "router navigation APIs.  This can also happen if you are using " +
@@ -4448,7 +4448,7 @@ function getInternalRouterError(
   } = {}
 ) {
   let statusText = "Unknown Server Error";
-  let errorMessage = "Unknown @remix-run/router error";
+  let errorMessage = "Unknown @aptre/remix-router error";
 
   if (status === 400) {
     statusText = "Bad Request";

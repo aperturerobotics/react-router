@@ -1,6 +1,6 @@
 {
-  "name": "react-router",
-  "version": "6.21.0",
+  "name": "@aptre/remix-react-router",
+  "version": "1.2.3",
   "description": "Declarative routing for React",
   "keywords": [
     "react",
@@ -12,20 +12,20 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/remix-run/react-router",
+    "url": "git+https://github.com/aperturerobotics/remix-react-router.git",
     "directory": "packages/react-router"
   },
   "license": "MIT",
   "author": "Remix Software <hello@remix.run>",
   "sideEffects": false,
-  "main": "./dist/main.js",
-  "unpkg": "./dist/umd/react-router.production.min.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@remix-run/router": "1.14.0"
+    "@aptre/remix-router": "1.2.3"
   },
   "devDependencies": {
+    "esbuild": "^0.24.0",
     "react": "^18.2.0"
   },
   "peerDependencies": {
@@ -33,11 +33,16 @@
   },
   "files": [
     "dist/",
-    "CHANGELOG.md",
     "LICENSE.md",
     "README.md"
   ],
-  "engines": {
-    "node": ">=14.0.0"
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build:lib && npm run build:types",
+    "build:min": "npm run build:lib:min && npm run build:types",
+    "build:lib": "npm run build:esbuild -- --outfile=./dist/index.mjs ./index.ts",
+    "build:lib:min": "npm run build:lib -- --minify",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/",
+    "build:esbuild": "esbuild --bundle --external:react --external:react-dom --external:@aptre/remix-react-router --external:aptre/remix-router --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022  --platform=browser"
   }
 }

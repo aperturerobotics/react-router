@@ -28,7 +28,7 @@ import type {
   ShouldRevalidateFunctionArgs,
   To,
   UIMatch,
-} from "@remix-run/router";
+} from "@aptre/remix-router";
 import {
   AbortedDeferredError,
   Action as NavigationType,
@@ -46,7 +46,7 @@ import {
   redirectDocument,
   resolvePath,
   UNSAFE_warning as warning,
-} from "@remix-run/router";
+} from "@aptre/remix-router";
 
 import type {
   AwaitProps,
@@ -55,6 +55,7 @@ import type {
   LayoutRouteProps,
   MemoryRouterProps,
   NavigateProps,
+  NavigatePathProps,
   OutletProps,
   PathRouteProps,
   RouteProps,
@@ -66,6 +67,7 @@ import {
   Await,
   MemoryRouter,
   Navigate,
+  NavigatePath,
   Outlet,
   Route,
   Router,
@@ -90,6 +92,7 @@ import {
   LocationContext,
   NavigationContext,
   RouteContext,
+  RouteContextObject,
 } from "./lib/context";
 import type { NavigateFunction } from "./lib/hooks";
 import {
@@ -104,6 +107,7 @@ import {
   useMatch,
   useMatches,
   useNavigate,
+  useNavigatePath,
   useNavigation,
   useNavigationType,
   useOutlet,
@@ -146,6 +150,7 @@ export type {
   NavigateFunction,
   NavigateOptions,
   NavigateProps,
+  NavigatePathProps,
   Navigation,
   Navigator,
   NonIndexRouteObject,
@@ -161,6 +166,7 @@ export type {
   RedirectFunction,
   RelativeRoutingType,
   RouteMatch,
+  RouteContextObject,
   RouteObject,
   RouteProps,
   RouterProps,
@@ -179,6 +185,7 @@ export {
   Await,
   MemoryRouter,
   Navigate,
+  NavigatePath,
   NavigationType,
   Outlet,
   Route,
@@ -210,6 +217,7 @@ export {
   useMatch,
   useMatches,
   useNavigate,
+  useNavigatePath,
   useNavigation,
   useNavigationType,
   useOutlet,
@@ -235,7 +243,7 @@ function mapRouteProperties(route: RouteObject) {
         warning(
           false,
           "You should not include both `Component` and `element` on your route - " +
-            "`Component` will be used."
+            "`Component` will be used.",
         );
       }
     }
@@ -251,7 +259,7 @@ function mapRouteProperties(route: RouteObject) {
         warning(
           false,
           "You should not include both `HydrateFallback` and `hydrateFallbackElement` on your route - " +
-            "`HydrateFallback` will be used."
+            "`HydrateFallback` will be used.",
         );
       }
     }
@@ -267,7 +275,7 @@ function mapRouteProperties(route: RouteObject) {
         warning(
           false,
           "You should not include both `ErrorBoundary` and `errorElement` on your route - " +
-            "`ErrorBoundary` will be used."
+            "`ErrorBoundary` will be used.",
         );
       }
     }
@@ -288,7 +296,7 @@ export function createMemoryRouter(
     hydrationData?: HydrationState;
     initialEntries?: InitialEntry[];
     initialIndex?: number;
-  }
+  },
 ): RemixRouter {
   return createRouter({
     basename: opts?.basename,

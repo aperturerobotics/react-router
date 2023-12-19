@@ -4,7 +4,7 @@
 
 import * as React from "react";
 import * as ReactDOMServer from "react-dom/server";
-import { json } from "@remix-run/router";
+import { json } from "@aptre/remix-router";
 import {
   Form,
   Link,
@@ -12,7 +12,7 @@ import {
   useLoaderData,
   useLocation,
   useMatches,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 import type { StaticHandlerContext } from "react-router-dom/server";
 import {
   createStaticHandler,

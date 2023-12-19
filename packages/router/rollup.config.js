@@ -31,7 +31,7 @@ function getRollupConfig(
       file: `${OUTPUT_DIR}/${filename}`,
       format,
       sourcemap: !PRETTY,
-      banner: createBanner("@remix-run/router", version),
+      banner: createBanner("@aptre/remix-router", version),
       ...(format === "umd" ? { name: "RemixRouter" } : {}),
     },
     plugins: [
