@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-replace": "6.0.1",
-    "@types/node": "22.10.0",
+    "@types/node": "22.10.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "4.3.4",
