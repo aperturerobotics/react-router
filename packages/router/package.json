@@ -1,6 +1,6 @@
 {
   "name": "@aptre/remix-router",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Nested/Data-driven/Framework-agnostic Routing",
   "keywords": [
     "remix",
@@ -29,5 +29,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build:lib && npm run build:types",
+    "build:min": "npm run build:lib:min && npm run build:types",
+    "build:lib": "npm run build:esbuild -- --outfile=./dist/index.mjs ./index.ts",
+    "build:lib:min": "npm run build:lib -- --minify",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/",
+    "build:esbuild": "esbuild --bundle --external:react --external:react-dom --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022 --platform=browser"
   }
 }
