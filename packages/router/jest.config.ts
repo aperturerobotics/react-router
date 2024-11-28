@@ -1,16 +1,11 @@
-/** @type {import('jest').Config} */
-module.exports = {
+import type { Config } from 'jest';
+
+const config: Config = {
   testEnvironment: "jsdom",
-  testMatch: ["**/__tests__/*-test.[jt]s?(x)"],
-  transform: {
-    "\\.[jt]sx?$": "./jest-transformer.js",
-  },
-  globals: {
-    __DEV__: true,
-  },
+  testMatch: ["**/__tests__/*-test.(js|ts)"],
   setupFiles: ["./__tests__/setup.ts"],
   moduleNameMapper: {
-    "^@aptre/remix-router$": "<rootDir>/../router/index.ts",
+    "^@aptre/remix-router$": "<rootDir>/index.ts",
     "^@remix-run/web-blob$": require.resolve("@remix-run/web-blob"),
     "^@remix-run/web-fetch$": require.resolve("@remix-run/web-fetch"),
     "^@remix-run/web-form-data$": require.resolve("@remix-run/web-form-data"),
@@ -18,7 +13,7 @@ module.exports = {
     "^@web3-storage/multipart-parser$": require.resolve(
       "@web3-storage/multipart-parser"
     ),
-    "^@aptre/remix-react-router$": "<rootDir>/../react-router/index.ts",
-    "^@aptre/remix-react-router-dom$": "<rootDir>/index.tsx",
   },
 };
+
+export default config;

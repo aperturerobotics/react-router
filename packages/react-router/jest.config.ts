@@ -1,9 +1,8 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
   testEnvironment: "jsdom",
   testMatch: ["**/__tests__/*-test.[jt]s?(x)"],
-  transform: {
-    "\\.[jt]sx?$": "./jest-transformer.js",
-  },
   globals: {
     __DEV__: true,
   },
@@ -20,3 +19,5 @@ module.exports = {
     "^@aptre/remix-react-router$": "<rootDir>/index.ts",
   },
 };
+
+export default config;

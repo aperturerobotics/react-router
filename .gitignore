@@ -25,3 +25,5 @@ node_modules/
 .eslintcache
 /.env
 /NOTES.md
+.aider*
+.env
